@@ -10,7 +10,8 @@ if __name__ == '__main__':
     logging.basicConfig(
         format='[%(asctime)s] %(levelname)-8s %(message)s [%(pathname)s:%(lineno)d]',
         level=settings.LOG_LEVEL,
-    )  # solo a consola
+        filename=log_utils.get_log_path(settings.LOG_FOLDER, __file__),
+    )  # solo a fichero
 
     # si quiero, puedo cambiar el nivel de logs de una parte de la aplicación
     logging.getLogger('lib1').setLevel(logging.INFO)
